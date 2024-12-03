@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `applications` (
   `id` int(11) NOT NULL,
-  `position` varchar(100) NOT NULL,
+  `position` varchar(100) NOT NULL AUTO_INCREMENT,
   `company` varchar(50) NOT NULL,
   `job_field` varchar(30) NOT NULL,
   `job_type` enum('Part Time','Full Time','Internship') NOT NULL,
