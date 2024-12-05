@@ -1,8 +1,0 @@
-<?php
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	echo "Hello";
-}
-else {
-	header("Location: index.php");
-}
