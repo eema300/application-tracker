@@ -47,25 +47,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die();
         }
 
-        $query = "INSERT INTO users (name, email, pwd) VALUES
-        (?, ?, ?);";
+        // $query = "INSERT INTO users (name, email, pwd) VALUES
+        // (?, ?, ?);";
 
-        $stmt = $pdo->prepare($query);
+        // $stmt = $pdo->prepare($query);
 
-        $stmt->execute([$name, $email, $pwd]);
+        // $options = [
+        //     'cost' = 12
+        // ];
+        // $hashedPwd = password_hash($pwd, PASSWORD_BCRYPT, $options);
+
+        // $stmt->execute([$name, $email, $hashedPwd]);
+
+        create_user($pdo, $name, $email, $pwd);
+
+        //$_SESSION["user_name"] = $name;
 
         $pdo = null;
         $stmt = null;
 
-        //header("Location: ../index.php");
+        header("Location: ../index.php");
         //header("Location: homepage.inc.php");
 
         die();
     }
-    catch(PDOException $e) {
+    catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
     }
 }
 else {
 	header("Location: ../index.php");
+    die();
 }
