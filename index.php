@@ -23,40 +23,19 @@
 <!-- i want to make the button not a button but still clickable!! -->
 <!-- how to add another card based on the rows of data in db?? -->
 
-        <div class='applications_container'>
+        <div id='applications_container'>
             <button id='new_app'>
                 + New Application
             </button>
-
-            <div class='application_info'>
-                <p class='app_child'>MLE</p>
-                <p class='app_child'>Adobe</p>
-                <p class='app_child'>Full Time</p>
-                <div class='app_child' id='status'>
-                    <button id='submit_button'>Submitted</button>
-                </div>
-                <div class='app_child' id='status'>
-                <form action="">
-                    <select name="status" id="status_menu">
-                        <option value="Unsubmitted">Unsubmitted</option>
-                        <option value="Applied">Applied</option>
-                        <option value="Under Review">Under Review</option>
-                        <option value="Interview">Interview</option>
-                        <option value="Initial Interview">Initial Interview</option>
-                        <option value="Final Interview">Final Interview</option>
-                        <option value="Technical Assessment">Technical Assessment</option>
-                        <option value="Offer Extended">Offer Extended</option>
-                        <option value="Offer Accepted">Offer Accepted</option>
-                        <option value="Offer Rejected">Offer Rejected</option>
-                        <option value="Hired">Hired</option>
-                        <option value="No Response">No Response</option>
-                        <option value="Rejected">Rejected</option>
-                        <option value="Closed">Closed</option>
-                    </select>
-                </form>
-                </div>
-            </div>
         </div>
     </main>
+
+    <script type="module">
+        import { new_application, disp_cards } from "./functions.js";
+        document.getElementById('new_app').addEventListener('click', new_application);
+        window.onload = async function () {
+            await disp_cards("includes/cardhandler.inc.php");
+        }
+    </script>
 </body>
 </html>
