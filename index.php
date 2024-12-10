@@ -1,41 +1,34 @@
+<?php
+require_once "includes/session_config.inc.php";
+require_once "includes/signup_view.inc.php";
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-      rel="stylesheet"
-      href="css/stylesheet.css"
-    />
-    <title>MyApply</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<title>Sign Up</title>
 </head>
 <body>
-    <h1 id='applications'>My Applications</h1>
-    <main>
-        <div class='title_container'>
-            <p class='child'>Position</p>
-            <p class='child'>Company</p>
-            <p class='child'>Job Type</p>
-            <p class='child'>Submission Date</p>
-            <p class='child'>Status</p>
-        </div>
+	<h1>Sign Up</h1>
 
-<!-- i want to make the button not a button but still clickable!! -->
-<!-- how to add another card based on the rows of data in db?? -->
+	<form action="includes/signup.inc.php" method="post">
+		<!-- <label for="name">Name:</label><br>
+		<input type="text" name="name"><br><br>
+		<label for="email">Email:</label><br>
+		<input type="text" name="email"><br><br>
+		<label for="password">Password:</label><br>
+		<input type="password" name="pwd"><br><br> -->
+		<?php
+		signup_inputs();
+		?>
 
-        <div id='applications_container'>
-            <button id='new_app'>
-                + New Application
-            </button>
-        </div>
-    </main>
+		<button type="submit">Sign Up</button>
+	</form>
 
-    <script type="module">
-        import { new_application, disp_cards } from "./functions.js";
-        document.getElementById('new_app').addEventListener('click', new_application);
-        window.onload = async function () {
-            await disp_cards("includes/cardhandler.inc.php");
-        }
-    </script>
+	<?php
+	check_signup_errors();
+	?>
+
 </body>
 </html>

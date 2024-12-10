@@ -5,9 +5,7 @@ try {
     require_once "signup.inc.php";
 
     // define select query
-    $query = "SELECT position, company, job_type, submission_date, app_status 
-              FROM applications
-              WHERE user_id;";
+    $query = "SELECT position, company, job_type, submission_date, app_status FROM applications;";
 
     // send query to database
     $stmt = $pdo->prepare($query);
