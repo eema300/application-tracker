@@ -44,14 +44,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_id($sessionId);
 
         $_SESSION["user_id"] = $result["id"];
-        //$_SESSION["user_name"] = $result["name"];
+        //$user_id ???
+        $_SESSION["user_name"] = $result["name"];
         $_SESSION["user_email"] = htmlspecialchars($result["email"]);
 
         $_SESSION["last_regeneration"] = time();
 
-        header("Location: ../index.php?login=success");
+        //header("Location: ../index.php?login=success");
 
-        //header("Location: homepage.inc.php");
+        //$name = $result["name"];
+        header("Location: homepage.inc.php");
 
         $pdo = null;
         $stmt = null;

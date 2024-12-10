@@ -59,15 +59,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // $stmt->execute([$name, $email, $hashedPwd]);
 
-        create_user($pdo, $name, $email, $pwd);
+        $user_id = create_user($pdo, $name, $email, $pwd);
 
-        //$_SESSION["user_name"] = $name;
+        $_SESSION["user_name"] = $name;
 
         $pdo = null;
         $stmt = null;
 
-        header("Location: ../index.php");
-        //header("Location: homepage.inc.php");
+        //header("Location: ../index.php");
+        header("Location: homepage.inc.php");
 
         die();
     }

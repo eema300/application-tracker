@@ -26,4 +26,13 @@ function create_user(object $pdo, string $name, string $email, string $pwd)
     // $hashedPwd = password_hash($pwd, PASSWORD_BCRYPT, $options);
 
     $stmt->execute([$name, $email, /*$hashedPwd*/$pwd]);
+
+    $query = "SELECT user_id FROM users WHERE email = :email;"
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":email", $email);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
 }

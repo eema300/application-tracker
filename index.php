@@ -1,7 +1,7 @@
 <?php
 require_once "includes/session_config.inc.php";	// Creates a session for the user
 require_once "includes/signup_view.inc.php";	// defines signup_inputs() and check_signup_errors()
-require_once "includes/login_view.inc.php"; 
+require_once "includes/login_view.inc.php"; 	// defines check_login_errors()
 ?>
 
 <!DOCTYPE html>
@@ -46,10 +46,10 @@ require_once "includes/login_view.inc.php";
 	check_signup_errors();
 	?>
 
-	<h2>Logout</h2>
+	<!-- <h2>Logout</h2>
 
 	<form action="includes/logout.inc.php" method="post">
-		<button>Logout</button>
+		<button>Logout</button> -->
 </form>
 
 </body>
