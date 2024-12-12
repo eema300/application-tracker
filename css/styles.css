@@ -1,5 +1,9 @@
+* {
+    font-family: Tahoma, sans-serif;
+}
+
 body {
-    background-color: white;
+    background-color: aliceblue;;
 }
 
 h2 {
@@ -9,5 +13,6 @@ h2 {
 
 input {
     width: 30%;
-    background-color: gainsboro;
+    background-color: #97c4ff;
+    text-align: left;
 }
