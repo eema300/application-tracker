@@ -2,14 +2,11 @@
 
 declare(strict_types = 1);
 
+// function for echoing the http code for the signup page
+// if user input data for some but not all fields and submits
+// the data is kept but the user is still told to finish inputing data
 function signup_inputs() 
 {
-    // <label for="name">Name:</label><br>
-	// <input type="text" name="name"><br><br>
-	// <label for="email">Email:</label><br>
-	// <input type="text" name="email"><br><br>
-	// <label for="password">Password:</label><br>
-	// <input type="password" name="pwd"><br><br>
 
     if (isset($_SESSION["signup_data"]["name"]))
     {
@@ -37,6 +34,7 @@ function signup_inputs()
 	    <input type="password" name="pwd"><br><br>';
 }
 
+// checks if any errors where detected, and outputs them to the user
 function check_signup_errors()
 {
     if (isset($_SESSION["errors_signup"]))

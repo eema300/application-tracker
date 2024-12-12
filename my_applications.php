@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +24,6 @@
             <p class='child'>Status</p>
         </div>
 
-<!-- i want to make the button not a button but still clickable!! -->
-<!-- how to add another card based on the rows of data in db?? -->
 
         <div id='applications_container'>
             <button id='new_app'>

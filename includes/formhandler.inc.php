@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function input_not_empty($p, $c, $j, $s) {
     $vars = [$p, $c, $j, $s];
     foreach ($vars as $var) {
@@ -28,19 +30,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             require_once "dbh.inc.php";
     
             // define insert query
-            $query = "INSERT INTO applications (position, company, job_type, submission_date, app_status)
-                        VALUES (?, ?, ?, ?, ?);";
+            $query = "INSERT INTO applications (position, company, job_type, submission_date, app_status, user_id)
+                        VALUES (?, ?, ?, ?, ?, ?);";
     
             // send query to database
             $stmt = $pdo->prepare($query);
-            $stmt->execute([$position, $company, $job_type, $submission_date, $status]);
+            $stmt->execute([$position, $company, $job_type, $submission_date, $status, $_SESSION['user_id']]);
     
             // close connection
             $pdo = null;
             $stmt = null;
     
             // return to applications page
-            header("Location: ../index.php");
+            header("Location: ../my_applications.php");
             die();
         } catch (PDOException $e) {
             die("query failed: " . $e->getMessage());

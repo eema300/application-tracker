@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 require_once "signup_model.inc.php";
 
-function is_input_empty($name, $email, $pwd)
+function is_input_empty(string $name, string $email, string $pwd)
 {
     if (empty($name) || empty($email) || empty($pwd))
     {

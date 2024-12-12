@@ -2,6 +2,10 @@ export function new_application() {
     window.location.href = "new_application.php"
 }
 
+export function my_applications() {
+    window.location.href = "my_applications.php"
+}
+
 export async function disp_cards(filename) {
     try {
         const response = await fetch(filename);
